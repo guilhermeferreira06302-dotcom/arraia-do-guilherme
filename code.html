@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>LuxeWash Pro - Mobile Scheduling Flow</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500&amp;family=Inter:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "error": "#ba1a1a",
+                      "on-primary-fixed": "#001452",
+                      "secondary-fixed": "#dae2fd",
+                      "on-primary-container": "#dfe3ff",
+                      "on-error-container": "#93000a",
+                      "surface-container-lowest": "#ffffff",
+                      "on-primary": "#ffffff",
+                      "tertiary": "#3f4f65",
+                      "primary-fixed": "#dde1ff",
+                      "tertiary-fixed-dim": "#b7c8e1",
+                      "inverse-surface": "#2d3133",
+                      "on-tertiary-fixed-variant": "#38485d",
+                      "outline": "#737688",
+                      "on-secondary-fixed": "#131b2e",
+                      "on-surface": "#191c1e",
+                      "outline-variant": "#c3c5d9",
+                      "on-background": "#191c1e",
+                      "secondary-fixed-dim": "#bec6e0",
+                      "surface-container-high": "#e6e8ea",
+                      "on-tertiary": "#ffffff",
+                      "background": "#f7f9fb",
+                      "inverse-on-surface": "#eff1f3",
+                      "on-secondary": "#ffffff",
+                      "surface-dim": "#d8dadc",
+                      "primary-fixed-dim": "#b7c4ff",
+                      "on-secondary-container": "#5c647a",
+                      "on-surface-variant": "#434656",
+                      "on-error": "#ffffff",
+                      "secondary-container": "#dae2fd",
+                      "primary": "#003ec7",
+                      "surface-container": "#eceef0",
+                      "tertiary-fixed": "#d3e4fe",
+                      "secondary": "#565e74",
+                      "surface-tint": "#004ced",
+                      "surface-variant": "#e0e3e5",
+                      "surface": "#f7f9fb",
+                      "on-tertiary-container": "#d6e6ff",
+                      "on-secondary-fixed-variant": "#3f465c",
+                      "inverse-primary": "#b7c4ff",
+                      "surface-container-highest": "#e0e3e5",
+                      "tertiary-container": "#57677e",
+                      "surface-bright": "#f7f9fb",
+                      "on-primary-fixed-variant": "#0038b6",
+                      "on-tertiary-fixed": "#0b1c30",
+                      "surface-container-low": "#f2f4f6",
+                      "error-container": "#ffdad6",
+                      "primary-container": "#0052ff"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "sidebar-width": "260px",
+                      "section-gap": "64px",
+                      "gutter": "24px",
+                      "unit": "4px",
+                      "container-padding": "32px"
+              },
+              "fontFamily": {
+                      "display": [
+                              "Inter"
+                      ],
+                      "label-sm": [
+                              "Geist"
+                      ],
+                      "headline-md": [
+                              "Inter"
+                      ],
+                      "headline-lg-mobile": [
+                              "Inter"
+                      ],
+                      "body-md": [
+                              "Inter"
+                      ],
+                      "headline-lg": [
+                              "Inter"
+                      ],
+                      "body-lg": [
+                              "Inter"
+                      ],
+                      "mono-technical": [
+                              "Geist"
+                      ]
+              },
+              "fontSize": {
+                      "display": [
+                              "48px",
+                              {
+                                      "lineHeight": "1.1",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "label-sm": [
+                              "13px",
+                              {
+                                      "lineHeight": "1",
+                                      "letterSpacing": "0.02em",
+                                      "fontWeight": "500"
+                              }
+                      ],
+                      "headline-md": [
+                              "24px",
+                              {
+                                      "lineHeight": "1.3",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "headline-lg-mobile": [
+                              "24px",
+                              {
+                                      "lineHeight": "1.2",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "body-md": [
+                              "16px",
+                              {
+                                      "lineHeight": "1.5",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "headline-lg": [
+                              "32px",
+                              {
+                                      "lineHeight": "1.2",
+                                      "letterSpacing": "-0.01em",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "body-lg": [
+                              "18px",
+                              {
+                                      "lineHeight": "1.6",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "mono-technical": [
+                              "14px",
+                              {
+                                      "lineHeight": "1.4",
+                                      "fontWeight": "400"
+                              }
+                      ]
+              }
+      },
+          },
+        }
+      </script>
+<style>
+        /* Custom Styles for Webkit Scrollbar */
+        ::-webkit-scrollbar {
+            width: 4px;
+            height: 4px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent; 
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #cbd5e1; 
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #94a3b8; 
+        }
+
+        /* Premium Input Focus */
+        .premium-input:focus-within {
+            box-shadow: 0 0 0 2px rgba(0, 82, 255, 0.1);
+        }
+
+        /* Subtle Inner Shadow for Buttons */
+        .btn-inner-shadow {
+            box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.15), 0 1px 2px rgba(0, 0, 0, 0.05);
+        }
+        
+        /* Hidden input for custom radio logic */
+        .time-slot-radio:checked + label {
+            background-color: #f2f4f6;
+            border-color: #0052ff;
+        }
+        
+        .time-slot-radio:checked + label .time-text {
+            color: #003ec7;
+            font-weight: 600;
+        }
+
+        .employee-radio:checked + div {
+            border-color: #0052ff;
+            background-color: #f2f4f6;
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface font-body-md min-h-screen flex flex-col items-center justify-center pt-8 pb-32">
+<!-- Mobile Container (Max-width 680px for focused scheduling) -->
+<main class="w-full max-w-[680px] bg-surface-container-lowest sm:border sm:border-outline-variant/30 sm:rounded-xl sm:shadow-sm overflow-hidden relative flex flex-col min-h-[800px] h-full sm:h-auto">
+<!-- Header (Contextual Task - No Main Nav) -->
+<header class="flex justify-between items-center px-4 sm:px-8 py-4 border-b border-outline-variant/20 bg-surface-container-lowest sticky top-0 z-20">
+<button aria-label="Go Back" class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-surface-container-low transition-colors">
+<span class="material-symbols-outlined text-on-surface-variant">close</span>
+</button>
+<h1 class="font-headline-md text-headline-md text-on-surface font-semibold tracking-tight">Schedule Wash</h1>
+<div class="w-10"></div> <!-- Spacer for centering -->
+</header>
+<!-- Step Indicator -->
+<div class="px-4 sm:px-8 py-6 bg-surface-container-lowest z-10 relative">
+<div class="flex items-center justify-between relative">
+<!-- Progress Line -->
+<div class="absolute left-0 top-1/2 -translate-y-1/2 w-full h-[2px] bg-surface-variant -z-10 rounded-full"></div>
+<div class="absolute left-0 top-1/2 -translate-y-1/2 w-[15%] h-[2px] bg-primary -z-10 rounded-full transition-all duration-300"></div>
+<!-- Step 1 (Active) -->
+<div class="flex flex-col items-center gap-2">
+<div class="w-8 h-8 rounded-full bg-primary text-on-primary flex items-center justify-center font-label-sm text-label-sm shadow-sm ring-4 ring-surface-container-lowest">
+                        1
+                    </div>
+<span class="font-label-sm text-label-sm text-primary">Time</span>
+</div>
+<!-- Step 2 (Upcoming) -->
+<div class="flex flex-col items-center gap-2">
+<div class="w-8 h-8 rounded-full bg-surface text-on-surface-variant flex items-center justify-center border border-outline-variant/50 font-label-sm text-label-sm ring-4 ring-surface-container-lowest">
+                        2
+                    </div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Detailer</span>
+</div>
+<!-- Step 3 (Upcoming) -->
+<div class="flex flex-col items-center gap-2">
+<div class="w-8 h-8 rounded-full bg-surface text-on-surface-variant flex items-center justify-center border border-outline-variant/50 font-label-sm text-label-sm ring-4 ring-surface-container-lowest">
+                        3
+                    </div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Review</span>
+</div>
+</div>
+</div>
+<!-- Scrollable Content Area -->
+<div class="flex-1 overflow-y-auto px-4 sm:px-8 pb-24">
+<!-- Section: Date Selection (Bento Style) -->
+<section class="mb-10">
+<div class="flex items-center justify-between mb-4">
+<h2 class="font-headline-md text-body-lg font-semibold text-on-surface">Select Date</h2>
+<button class="flex items-center gap-1 text-primary text-sm font-medium hover:opacity-80 transition-opacity">
+<span class="material-symbols-outlined text-[18px]">calendar_month</span>
+                        October
+                    </button>
+</div>
+<!-- Horizontal Date Scroller -->
+<div class="flex gap-3 overflow-x-auto pb-4 snap-x snap-mandatory hide-scrollbar">
+<!-- Date Card (Inactive) -->
+<label class="relative flex-shrink-0 snap-start cursor-pointer group">
+<input class="peer sr-only" name="date" type="radio" value="12"/>
+<div class="w-[72px] h-[88px] flex flex-col items-center justify-center rounded-xl border border-outline-variant/40 bg-surface-container-lowest peer-checked:border-primary peer-checked:bg-primary/5 transition-all group-hover:border-outline-variant shadow-sm">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider mb-1">Thu</span>
+<span class="font-display text-[24px] font-bold text-on-surface peer-checked:text-primary leading-none">12</span>
+</div>
+</label>
+<!-- Date Card (Active) -->
+<label class="relative flex-shrink-0 snap-start cursor-pointer group">
+<input checked="" class="peer sr-only" name="date" type="radio" value="13"/>
+<div class="w-[72px] h-[88px] flex flex-col items-center justify-center rounded-xl border border-primary bg-primary/5 transition-all shadow-sm">
+<span class="font-label-sm text-label-sm text-primary uppercase tracking-wider mb-1">Fri</span>
+<span class="font-display text-[24px] font-bold text-primary leading-none">13</span>
+</div>
+</label>
+<!-- Date Card (Inactive) -->
+<label class="relative flex-shrink-0 snap-start cursor-pointer group">
+<input class="peer sr-only" name="date" type="radio" value="14"/>
+<div class="w-[72px] h-[88px] flex flex-col items-center justify-center rounded-xl border border-outline-variant/40 bg-surface-container-lowest peer-checked:border-primary peer-checked:bg-primary/5 transition-all group-hover:border-outline-variant shadow-sm">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider mb-1">Sat</span>
+<span class="font-display text-[24px] font-bold text-on-surface peer-checked:text-primary leading-none">14</span>
+</div>
+</label>
+<!-- Date Card (Inactive) -->
+<label class="relative flex-shrink-0 snap-start cursor-pointer group">
+<input class="peer sr-only" name="date" type="radio" value="15"/>
+<div class="w-[72px] h-[88px] flex flex-col items-center justify-center rounded-xl border border-outline-variant/40 bg-surface-container-lowest peer-checked:border-primary peer-checked:bg-primary/5 transition-all group-hover:border-outline-variant shadow-sm">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider mb-1">Sun</span>
+<span class="font-display text-[24px] font-bold text-on-surface peer-checked:text-primary leading-none">15</span>
+</div>
+</label>
+<!-- Date Card (Inactive/Disabled visual) -->
+<label class="relative flex-shrink-0 snap-start opacity-50 cursor-not-allowed">
+<input class="peer sr-only" disabled="" name="date" type="radio" value="16"/>
+<div class="w-[72px] h-[88px] flex flex-col items-center justify-center rounded-xl border border-outline-variant/20 bg-surface-container-high transition-all">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider mb-1">Mon</span>
+<span class="font-display text-[24px] font-bold text-on-surface-variant leading-none">16</span>
+</div>
+</label>
+</div>
+</section>
+<!-- Section: Time Slots & Sequence (Asymmetric Layout) -->
+<section class="grid grid-cols-1 md:grid-cols-[1fr_200px] gap-8">
+<!-- Time Slots Column -->
+<div>
+<h2 class="font-headline-md text-body-lg font-semibold text-on-surface mb-4">Available Times</h2>
+<div class="grid grid-cols-2 gap-3 mt-4">
+<div class="relative">
+<input class="time-slot-radio sr-only" id="time-900" name="time" type="radio"/>
+<label class="flex items-center justify-center w-full py-3 px-4 rounded-lg border border-outline-variant/40 bg-surface-container-lowest cursor-pointer transition-all hover:border-outline-variant shadow-sm" for="time-900">
+<span class="time-text font-body-md text-on-surface">09:00 AM</span>
+</label>
+</div>
+<div class="relative">
+<input checked="" class="time-slot-radio sr-only" id="time-930" name="time" type="radio"/>
+<label class="flex items-center justify-center w-full py-3 px-4 rounded-lg border border-primary bg-surface-container-low cursor-pointer transition-all shadow-sm" for="time-930">
+<span class="time-text font-body-md text-primary font-semibold">09:30 AM</span>
+</label>
+</div>
+<div class="relative">
+<input class="time-slot-radio sr-only" id="time-1000" name="time" type="radio"/>
+<label class="flex items-center justify-center w-full py-3 px-4 rounded-lg border border-outline-variant/40 bg-surface-container-lowest cursor-pointer transition-all hover:border-outline-variant shadow-sm" for="time-1000">
+<span class="time-text font-body-md text-on-surface">10:00 AM</span>
+</label>
+</div>
+<div class="relative">
+<input class="time-slot-radio sr-only" id="time-1130" name="time" type="radio"/>
+<label class="flex items-center justify-center w-full py-3 px-4 rounded-lg border border-outline-variant/40 bg-surface-container-lowest cursor-pointer transition-all hover:border-outline-variant shadow-sm" for="time-1130">
+<span class="time-text font-body-md text-on-surface">11:30 AM</span>
+</label>
+</div>
+<div class="relative">
+<input class="time-slot-radio sr-only" id="time-1300" name="time" type="radio"/>
+<label class="flex items-center justify-center w-full py-3 px-4 rounded-lg border border-outline-variant/40 bg-surface-container-lowest cursor-pointer transition-all hover:border-outline-variant shadow-sm" for="time-1300">
+<span class="time-text font-body-md text-on-surface">01:00 PM</span>
+</label>
+</div>
+<div class="relative">
+<input class="time-slot-radio sr-only" id="time-1430" name="time" type="radio"/>
+<label class="flex items-center justify-center w-full py-3 px-4 rounded-lg border border-outline-variant/40 bg-surface-container-lowest cursor-pointer transition-all hover:border-outline-variant shadow-sm" for="time-1430">
+<span class="time-text font-body-md text-on-surface">02:30 PM</span>
+</label>
+</div>
+</div>
+</div>
+<!-- Timeline Sequence Column (Hidden on very small screens, visible as bento block on larger mobile/tablet) -->
+<div class="hidden sm:block bg-surface-container-low rounded-xl p-5 border border-outline-variant/30 h-fit mt-[42px]">
+<h3 class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider mb-4">Service Sequence</h3>
+<div class="relative pl-4 border-l-2 border-outline-variant/30 space-y-6">
+<!-- Step 1 -->
+<div class="relative">
+<div class="absolute -left-[21px] top-1 w-[10px] h-[10px] rounded-full bg-primary ring-4 ring-surface-container-low"></div>
+<p class="font-label-sm text-label-sm text-on-surface font-semibold mb-1">09:30 AM</p>
+<p class="text-sm text-on-surface-variant">Arrival &amp; Inspection</p>
+</div>
+<!-- Step 2 -->
+<div class="relative">
+<div class="absolute -left-[21px] top-1 w-[10px] h-[10px] rounded-full bg-outline-variant ring-4 ring-surface-container-low"></div>
+<p class="font-label-sm text-label-sm text-on-surface font-semibold mb-1">09:45 AM</p>
+<p class="text-sm text-on-surface-variant">Exterior Wash Prep</p>
+</div>
+<!-- Step 3 -->
+<div class="relative">
+<div class="absolute -left-[21px] top-1 w-[10px] h-[10px] rounded-full bg-outline-variant ring-4 ring-surface-container-low"></div>
+<p class="font-label-sm text-label-sm text-on-surface font-semibold mb-1">10:15 AM</p>
+<p class="text-sm text-on-surface-variant">Interior Detailing</p>
+</div>
+<!-- Estimated End -->
+<div class="relative pt-2">
+<div class="absolute -left-[23px] top-3 material-symbols-outlined text-[14px] text-primary bg-surface-container-low rounded-full ring-2 ring-surface-container-low">flag</div>
+<p class="font-label-sm text-label-sm text-primary font-semibold mb-1">11:30 AM</p>
+<p class="text-sm text-on-surface-variant">Estimated Completion</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Mobile Timeline Sequence (Visible only on small screens) -->
+<section class="mt-8 sm:hidden bg-surface-container-low rounded-xl p-4 border border-outline-variant/30">
+<div class="flex items-center gap-2 mb-3">
+<span class="material-symbols-outlined text-[18px] text-on-surface-variant">schedule</span>
+<h3 class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Est. Duration: 2h</h3>
+</div>
+<div class="flex justify-between items-center relative">
+<div class="absolute left-0 top-1/2 w-full h-[1px] bg-outline-variant/50 -z-10"></div>
+<div class="bg-surface-container-low px-2 text-xs text-primary font-medium">9:30 AM</div>
+<div class="bg-surface-container-low px-2 text-xs text-on-surface-variant">Wash</div>
+<div class="bg-surface-container-low px-2 text-xs text-on-surface-variant">Detail</div>
+<div class="bg-surface-container-low px-2 text-xs text-on-surface-variant font-medium">11:30 AM</div>
+</div>
+</section>
+</div>
+<!-- Fixed Bottom Action Area -->
+<div class="bottom-0 left-0 w-full bg-surface-container-lowest border-t border-outline-variant/20 p-4 sm:p-6 shadow-[0_-4px_20px_rgba(0,0,0,0.05)] z-20 fixed right-0">
+<div class="flex items-center justify-between mb-4">
+<div>
+<p class="text-sm text-on-surface-variant">Selected Time</p>
+<p class="font-body-md font-semibold text-on-surface">Fri, Oct 13 at 09:30 AM</p>
+</div>
+<div class="text-right">
+<p class="text-sm text-on-surface-variant">Service</p>
+<p class="font-body-md font-medium text-on-surface">Luxe Signature</p>
+</div>
+</div>
+<button class="w-full bg-primary hover:bg-primary-container text-white py-4 rounded-xl font-body-md font-semibold tracking-wide transition-colors btn-inner-shadow flex items-center justify-center gap-2">
+                Continue to Detailer
+                <span class="material-symbols-outlined text-[20px]">arrow_forward</span>
+</button>
+</div>
+</main>
+</body></html>
