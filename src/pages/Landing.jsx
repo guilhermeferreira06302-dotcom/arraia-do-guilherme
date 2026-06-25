@@ -12,49 +12,39 @@ export const Landing = () => {
             margin: 0;
             padding: 0;
             width: 100%;
-            height: 100%;
-            overflow: hidden; /* Não permitir scroll */
             background-color: #000;
+            /* Permite scroll na página de Landing */
+            overflow: auto !important; 
+            height: auto;
+            min-height: 100%;
           }
 
           .landing-container {
             position: relative;
             width: 100vw;
-            height: 100vh;
-            overflow: hidden;
+            min-height: 100vh;
             display: flex;
-            justify-content: center;
-            align-items: center;
+            justify-content: center; /* Centraliza no PC se colocar max-width */
+            align-items: flex-start;
           }
           
           .landing-image-wrapper {
             position: relative;
-            /* Mantém a proporção exata da imagem sem cortar nada (comportamento 'contain') */
-            max-width: 100vw;
-            max-height: 100vh;
-            aspect-ratio: 1080 / 1920; 
-            height: 100%;
-            width: auto;
-          }
-
-          @media (max-aspect-ratio: 1080/1920) {
-            .landing-image-wrapper {
-              width: 100%;
-              height: auto;
-            }
+            width: 100%;
+            max-width: 600px; /* Limite opcional para não estourar muito no Desktop */
+            height: auto;
           }
 
           .landing-image {
             width: 100%;
-            height: 100%;
-            object-fit: cover;
+            height: auto;
             display: block;
             pointer-events: none; /* O restante da imagem não deve ser clicável */
           }
 
           .landing-clickable-area {
             position: absolute;
-            /* Posição da área clicável ajustada para a esquerda */
+            /* Posição da área clicável baseada na porcentagem da imagem original */
             bottom: 8%;
             left: 5%;
             width: 50%;
